@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="123">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/UnityGame.sln" web="/" />
+            <mapping local="$PROJECT_DIR$/UnityEngine.UI.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Assembly-CSharp.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Unity.2D.Tilemap.Editor.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Unity.2D.Sprite.Editor.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/UnityEditor.UI.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/UnityEngine.UI.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/UnityEditor.UI.EditorTests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Unity.2D.Sprite.Package.EditorTests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/Unity.2D.Tilemap.Package.EditorTests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
