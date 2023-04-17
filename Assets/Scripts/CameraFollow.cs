@@ -7,7 +7,6 @@ public class CameraFollow : MonoBehaviour
     public Transform player;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
