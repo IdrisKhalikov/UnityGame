@@ -21,7 +21,7 @@ using UnityEngine.Rendering.Universal;
 public class EnableLights : MonoBehaviour {
     
     [SerializeField] private CaptureOnTriggerEnter2D enableLightsTrigger;
-    [SerializeField] private Light2D[] lightArray;
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D[] lightArray;
     [SerializeField] private float targetLightIntensity;
     [SerializeField] private float lightIntensitySpeed;
 
@@ -32,7 +32,7 @@ public class EnableLights : MonoBehaviour {
             enableLightsTrigger.OnPlayerTriggerEnter2D += EnableLightsTrigger_OnPlayerTriggerEnter2D;
         }
         
-        foreach (Light2D light in lightArray) {
+        foreach (UnityEngine.Rendering.Universal.Light2D light in lightArray) {
             light.intensity = 0f;
         }
 
@@ -48,7 +48,7 @@ public class EnableLights : MonoBehaviour {
         lightIntensity += lightIntensitySpeed * Time.deltaTime;
         lightIntensity = Mathf.Clamp(lightIntensity, 0f, targetLightIntensity);
 
-        foreach (Light2D light in lightArray) {
+        foreach (UnityEngine.Rendering.Universal.Light2D light in lightArray) {
             light.intensity = lightIntensity;
         }
 

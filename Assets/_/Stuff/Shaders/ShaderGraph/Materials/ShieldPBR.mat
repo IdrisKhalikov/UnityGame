@@ -76,7 +76,7 @@ Material:
     - _OutlineColor: {r: 0.27074933, g: 1, b: 0, a: 1}
     - _Tint: {r: 0.1450982, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1796840023620320277
+--- !u!114 &8881171562351109356
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
