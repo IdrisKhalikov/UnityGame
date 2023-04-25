@@ -38,8 +38,6 @@ namespace BSPTreeGeneration
                 if (partition.Iteration == iterations)
                     FillRect(GenerateRoom(partition.Bounds));
             }
-
-            Debug.Log("OK");
         }
 
         private static Rectangle GenerateRoom(Rectangle rect)
@@ -58,13 +56,9 @@ namespace BSPTreeGeneration
             var start = GetRectangleCenter(partition.Bounds);
             var end = GetRectangleCenter(partition.Neighbour.Bounds);
             if (start.X == end.X)
-            {
                 FillRect(new Point(start.X - 2, start.Y - 2), new Point(end.X + 1, end.Y + 2));
-            }
             else
-            {
                 FillRect(new Point(start.X - 2, start.Y - 2), new Point(end.X + 2, end.Y + 1));
-            }
         }
 
         private void DrawRect(Rectangle rect, Tile tile)
