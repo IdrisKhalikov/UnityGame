@@ -16,6 +16,8 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] private TMP_Text textField;
     [SerializeField] private TMP_FontAsset white;
     [SerializeField] private TMP_FontAsset black;
+    [SerializeField] private GameObject toChange;
+    [SerializeField] private GameObject canvas;
     
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -27,5 +29,7 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         background.sprite = defaultState;
         textField.font = black;
+        toChange.SetActive(true);
+        canvas.SetActive(false);
     }
 }

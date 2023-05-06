@@ -318,6 +318,8 @@ MonoBehaviour:
   textField: {fileID: 4668746750266815412}
   white: {fileID: 11400000, guid: 588c6b66006573d4cb878aea464b00c0, type: 2}
   black: {fileID: 11400000, guid: 1ccd3ce946c9050409a53c5c974794cd, type: 2}
+  toChange: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &4668746749028226438
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +408,8 @@ MonoBehaviour:
   textField: {fileID: 4668746749818484838}
   white: {fileID: 11400000, guid: 588c6b66006573d4cb878aea464b00c0, type: 2}
   black: {fileID: 11400000, guid: 1ccd3ce946c9050409a53c5c974794cd, type: 2}
+  toChange: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &4668746749127291397
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +709,8 @@ MonoBehaviour:
   textField: {fileID: 4668746750276577319}
   white: {fileID: 11400000, guid: 588c6b66006573d4cb878aea464b00c0, type: 2}
   black: {fileID: 11400000, guid: 1ccd3ce946c9050409a53c5c974794cd, type: 2}
+  toChange: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &4668746749172426458
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +901,8 @@ MonoBehaviour:
   textField: {fileID: 4668746750326721234}
   white: {fileID: 11400000, guid: 588c6b66006573d4cb878aea464b00c0, type: 2}
   black: {fileID: 11400000, guid: 1ccd3ce946c9050409a53c5c974794cd, type: 2}
+  toChange: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &4668746749794000444
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,6 +991,8 @@ MonoBehaviour:
   textField: {fileID: 4668746750094348423}
   white: {fileID: 11400000, guid: 588c6b66006573d4cb878aea464b00c0, type: 2}
   black: {fileID: 11400000, guid: 1ccd3ce946c9050409a53c5c974794cd, type: 2}
+  toChange: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!1 &4668746749818484836
 GameObject:
   m_ObjectHideFlags: 0
