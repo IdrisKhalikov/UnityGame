@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -92,7 +90,6 @@ public class MapSaverEditor : Editor
     {
         base.OnInspectorGUI();
 
-        //Reference to our script
         var saver = (MapSaver)target;
 
         if (GUILayout.Button("Save"))

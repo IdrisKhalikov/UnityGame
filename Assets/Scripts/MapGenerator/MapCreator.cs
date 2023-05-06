@@ -1,10 +1,7 @@
 using BSPTreeGeneration;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static UnityEngine.GraphicsBuffer;
 
 public class MapCreator : MonoBehaviour
 {
@@ -30,7 +27,6 @@ public class LevelGeneratorEditor : Editor
     {
         base.OnInspectorGUI();
 
-        //Reference to our script
         var creator = (MapCreator)target;
 
         if (GUILayout.Button("Generate"))
