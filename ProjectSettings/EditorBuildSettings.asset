@@ -113,6 +113,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TopDownEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/Demo/MMSceneLoadingDemoSceneB.unity
     guid: 352d34cac2435634fb99618d19a3929c
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 89c0735e4abe8554a895426d6505f4fb,
-      type: 2}
+  m_configObjects: {}
