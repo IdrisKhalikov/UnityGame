@@ -1,9 +1,9 @@
-using System.Drawing;
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
-using System.Threading;
 
 namespace BSPTreeGeneration
 {
@@ -12,80 +12,88 @@ namespace BSPTreeGeneration
         private Tilemap tilemap;
         private Tile wall;
         private Tile floor;
+        private MapVisualizer visualizer;
 
-        public MapGenerator(Tilemap tilemap, Tile wall, Tile floor)
+        public MapGenerator(Tilemap tilemap, Tile wall, Tile floor, MapVisualizer visualizer)
         {
             this.tilemap = tilemap;
             this.wall = wall;
             this.floor = null;
+            this.visualizer = visualizer;
         }
 
-        public void GenerateMap(int levelWidth, int levelHeight, int iterations)
+        public void GenerateMap(int x, int y, int width, int height, int minWidth, int minHeight, int offset)
         {
-            tilemap.ClearAllTiles();
-            tilemap.size = new Vector3Int(levelWidth, levelHeight);
-            tilemap.ResizeBounds();
-            tilemap.SetTile(new Vector3Int(levelWidth + 1, levelHeight + 1), floor);
-            var partitions = new BSPAlgorithm(levelWidth, levelHeight).GetMap(iterations);
-            foreach(var partition in partitions)
+            var rooms = BSPAlgorithm.GetRooms(new BoundsInt(x, y, 0, width, height, 0), minHeight, minWidth);
+            var tiles = GenerateRoomsWithOffset(rooms, offset);
+            tiles.UnionWith(GenerateCorrdiors(rooms));
+            visualizer.Init(tilemap);
+            visualizer.RenderMap(tiles);
+        }
+
+        private HashSet<Vector2Int> GenerateCorrdiors(List<BoundsInt> rooms)
+        {
+            var roomCenters = rooms.Select(room => Vector2Int.RoundToInt(room.center)).ToList();
+            var corridors = new HashSet<Vector2Int>();
+            var currentCenter = roomCenters[UnityEngine.Random.Range(0, roomCenters.Count)];
+            while(roomCenters.Count > 0)
             {
-                if(partition.Neighbour != null)
-                    DrawCorridor(partition);
+                var closest = roomCenters.OrderBy(point => Vector2.Distance(currentCenter, point)).First();
+                corridors.AddRange(BuildPath(currentCenter, closest));
+                roomCenters.Remove(currentCenter);
+                currentCenter = closest;
             }
 
-            foreach(var partition in partitions)
+            return corridors;
+        }
+
+        private IEnumerable<Vector2Int> BuildPath(Vector2Int start, Vector2Int end)
+        {
+            while (start.y != end.y)
             {
-                if (partition.Iteration == iterations)
-                    FillRect(GenerateRoom(partition.Bounds));
+                start += start.y < end.y ? Vector2Int.up : Vector2Int.down;
+                yield return start + Vector2Int.left;
+                yield return start + Vector2Int.right;
+                yield return start;
             }
+
+            var corner = start;
+
+            while (start.x != end.x)
+            {
+                start += start.x < end.x ? Vector2Int.right : Vector2Int.left;
+                yield return start + Vector2Int.up;
+                yield return start + Vector2Int.down;
+                yield return start;
+            }
+
+            if (corner != start)
+                for (var i = -1; i < 2; i++)
+                    for (var j = -1; j < 2; j++)
+                        yield return corner + new Vector2Int(i, j);
         }
 
-        private static Rectangle GenerateRoom(Rectangle rect)
+        private HashSet<Vector2Int> GenerateRoomsWithOffset(List<BoundsInt> rooms, int offset)
         {
-            var newX = rect.X + Random.Range(1, rect.Width / 3);
-            var newY = rect.Y + Random.Range(1, rect.Height / 3);
-            var width = rect.Width - (newX - rect.X);
-            var height = rect.Height - (newY - rect.Y);
-            width -= Random.Range(1, width / 3);
-            height -= Random.Range(1, height / 3);
-            return new Rectangle(newX, newY, width, height);
+            HashSet<Vector2Int> positions = new HashSet<Vector2Int>();
+            foreach (var room in rooms)
+            {
+                for (int x = offset; x < room.size.x - offset; x++)
+                {
+                    for (int y = offset; y < room.size.y - offset; y++)
+                    {
+                        Vector2Int position = (Vector2Int)room.min + new Vector2Int(x, y);
+                        positions.Add(position);
+                    }
+                }
+            }
+            return positions;
         }
 
-        private void DrawCorridor(Partition partition)
+        private void DrawFloor(HashSet<Vector2Int> tiles)
         {
-            var start = GetRectangleCenter(partition.Bounds);
-            var end = GetRectangleCenter(partition.Neighbour.Bounds);
-            if (start.X == end.X)
-                FillRect(new Point(start.X - 2, start.Y - 2), new Point(end.X + 1, end.Y + 2));
-            else
-                FillRect(new Point(start.X - 2, start.Y - 2), new Point(end.X + 2, end.Y + 1));
+            foreach (var tile in tiles)
+                tilemap.SetTile((Vector3Int)tile, wall);
         }
-
-        private void DrawRect(Rectangle rect, Tile tile)
-        {
-            DrawRect(new Point(rect.X, rect.Y), new Point(rect.X + rect.Width, rect.Y + rect.Height), tile);
-        }
-
-        private void DrawRect(Point start, Point end, Tile tile)
-        {
-            for (var x = start.X; x <= end.X; x++)
-                for (var y = start.Y; y <= end.Y; y++)
-                    tilemap.SetTile(new Vector3Int(x, y), tile);
-        }
-
-        private void FillRect(Point start, Point end)
-        {
-            DrawRect(start, end, wall);
-            DrawRect(new Point(start.X + 1, start.Y + 1), new Point(end.X - 1, end.Y - 1), floor);
-        }
-
-        private void FillRect(Rectangle rect)
-        {
-            DrawRect(rect, wall);
-            DrawRect(new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2), floor);
-        }
-
-        private static Point GetRectangleCenter(Rectangle rect)
-            => new Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2);
     }
 }
