@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
+
 
 namespace BSPTreeGeneration
 {
@@ -39,7 +40,8 @@ namespace BSPTreeGeneration
             while(roomCenters.Count > 0)
             {
                 var closest = roomCenters.OrderBy(point => Vector2.Distance(currentCenter, point)).First();
-                corridors.AddRange(BuildPath(currentCenter, closest));
+                //corridors.AddRange(BuildPath(currentCenter, closest));
+                corridors.UnionWith(BuildPath(currentCenter, closest));
                 roomCenters.Remove(currentCenter);
                 currentCenter = closest;
             }

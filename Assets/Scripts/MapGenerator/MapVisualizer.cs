@@ -77,6 +77,5 @@ public class MapVisualizer : MonoBehaviour
             Debug.Log($"Replaced {mask} with floor");
             return Floor;
         }
-
     }
 }
