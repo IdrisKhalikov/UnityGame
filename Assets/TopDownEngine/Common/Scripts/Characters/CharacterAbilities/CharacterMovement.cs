@@ -24,7 +24,7 @@ namespace MoreMountains.TopDownEngine
         /// whether the character can move freely, in 2D only, in 4 or 8 cardinal directions
         [Tooltip("whether the character can move freely, in 2D only, in 4 or 8 cardinal directions")]
         public Movements Movement = Movements.Free;
-
+        
         [Header("Settings")]
 
         /// whether or not movement input is authorized at that time
@@ -93,6 +93,7 @@ namespace MoreMountains.TopDownEngine
         protected const string _idleAnimationParameterName = "Idle";
         protected int _speedAnimationParameter;
         protected int _walkingAnimationParameter;
+        protected int _walkingAnimationDirectionParameter;
         protected int _idleAnimationParameter;
 
         /// <summary>

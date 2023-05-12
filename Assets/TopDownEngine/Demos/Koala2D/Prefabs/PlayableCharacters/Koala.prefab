@@ -9826,7 +9826,6 @@ GameObject:
   - component: {fileID: 114171358364461030}
   - component: {fileID: 114499223069276626}
   - component: {fileID: 4079558810237503720}
-  - component: {fileID: 5680071901359052271}
   m_Layer: 10
   m_Name: Koala
   m_TagString: Player
@@ -10360,29 +10359,6 @@ MonoBehaviour:
   StaminaRecoveryDelay: 5
   StaminaRecoveryRate: 20
   OutOfStaminaFeedbacks: {fileID: 0}
---- !u!114 &5680071901359052271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498750440386690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bbbe51f9806750489b5fe08d7a19729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RespawnOnPlayerRespawn: 1
-  RepositionToInitOnPlayerRespawn: 0
-  DisableAllComponentsOnKill: 0
-  DisableGameObjectOnKill: 1
-  IgnoreCheckpointsAlwaysRespawn: 1
-  AssociatedCheckpoints: []
-  AutoRespawnDuration: 0
-  AutoRespawnAmount: 3
-  AutoRespawnRemainingAmount: 3
-  RespawnEffect: {fileID: 0}
-  RespawnSfx: {fileID: 0}
 --- !u!1 &1561075265052736
 GameObject:
   m_ObjectHideFlags: 0

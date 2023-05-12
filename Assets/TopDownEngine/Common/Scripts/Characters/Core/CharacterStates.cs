@@ -39,5 +39,13 @@ namespace MoreMountains.TopDownEngine
 			Attacking,
             FallingDownHole
 		}
+		
+		public enum CharacterDirections 
+		{
+			Up,
+			Down,
+			Left,
+			Right
+		}
 	}
 }

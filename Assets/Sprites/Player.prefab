@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142519838877934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.056, y: -0.288, z: 0}
+  m_LocalPosition: {x: -0.012, y: -0.317, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4848,7 +4848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186096418679244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0.128, z: 0}
+  m_LocalPosition: {x: 0.399, y: -0.196, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9701,7 +9701,7 @@ GameObject:
   - component: {fileID: 212479530728563738}
   - component: {fileID: 95179347267985190}
   m_Layer: 10
-  m_Name: KoalaModel
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9820,12 +9820,14 @@ GameObject:
   - component: {fileID: 114545434076996454}
   - component: {fileID: 114619658823058744}
   - component: {fileID: 114530058247276760}
+  - component: {fileID: 114863807796539354}
   - component: {fileID: 114644362621734812}
   - component: {fileID: 114104414726605804}
   - component: {fileID: 114171358364461030}
   - component: {fileID: 114499223069276626}
   - component: {fileID: 4079558810237503720}
-  - component: {fileID: 6244861704888537324}
+  - component: {fileID: 1575186988764811887}
+  - component: {fileID: 8919888139408643256}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -9932,7 +9934,7 @@ MonoBehaviour:
   OverHole: 0
   GroundLayerMask:
     serializedVersion: 2
-    m_Bits: 197120
+    m_Bits: 197121
   HoleLayerMask:
     serializedVersion: 2
     m_Bits: 32768
@@ -9984,11 +9986,11 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  FacingMode: 3
+  FacingMode: 2
   ModelShouldFlip: 0
   ModelFlipValueLeft: {x: -1, y: 1, z: 1}
   ModelFlipValueRight: {x: 1, y: 1, z: 1}
-  ModelShouldRotate: 1
+  ModelShouldRotate: 0
   ModelRotationValueLeft: {x: 0, y: 180, z: 0}
   ModelRotationValueRight: {x: 0, y: 0, z: 0}
   ModelRotationSpeed: 0
@@ -10112,7 +10114,7 @@ MonoBehaviour:
     CanInterruptRefill: 0
     CooldownState: 0
     CurrentDurationLeft: 0
-  InvincibleWhileDashing: 0
+  InvincibleWhileDashing: 1
   DashFeedback: {fileID: 5986297841957823375}
 --- !u!114 &114545434076996454
 MonoBehaviour:
@@ -10134,7 +10136,8 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InitialWeapon: {fileID: 0}
+  InitialWeapon: {fileID: 114594623923584052, guid: 9e254991b6e8e1344af3fab0176ecaf2,
+    type: 3}
   CanPickupWeapons: 1
   WeaponUseFeedback: {fileID: 0}
   WeaponAttachment: {fileID: 4515663194721164}
@@ -10192,6 +10195,31 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   FallingFeedback: {fileID: 4241640356283784650}
+--- !u!114 &114863807796539354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498750440386690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c86c96e06d6ae44b822a6ab24e1b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  JumpDuration: 0.5
+  JumpProportionalToPress: 1
+  MinimumPressTime: 0.5
+  JumpStartFeedback: {fileID: 0}
+  JumpStopFeedback: {fileID: 0}
 --- !u!114 &114644362621734812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10256,8 +10284,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 30
-  MaximumHealth: 30
+  InitialHealth: 50
+  MaximumHealth: 100
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   ImmuneToKnockback: 0
@@ -10267,7 +10295,7 @@ MonoBehaviour:
   DestroyOnDeath: 0
   DelayBeforeDestruction: 0
   PointsWhenDestroyed: 0
-  RespawnAtInitialLocation: 0
+  RespawnAtInitialLocation: 1
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 0
@@ -10328,12 +10356,12 @@ MonoBehaviour:
   _currentStamina: 0
   InitialStamina: 100
   MaximumStamina: 100
-  RunningStaminaConsumption: 20
-  DashingStaminaConsumption: 50
+  RunningStaminaConsumption: 10
+  DashingStaminaConsumption: 20
   StaminaRecoveryDelay: 5
   StaminaRecoveryRate: 20
   OutOfStaminaFeedbacks: {fileID: 0}
---- !u!114 &6244861704888537324
+--- !u!114 &1575186988764811887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10342,20 +10370,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498750440386690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bbbe51f9806750489b5fe08d7a19729, type: 3}
+  m_Script: {fileID: 11500000, guid: c54b7b53e26347643a7d54dd14a14b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RespawnOnPlayerRespawn: 0
-  RepositionToInitOnPlayerRespawn: 1
-  DisableAllComponentsOnKill: 0
-  DisableGameObjectOnKill: 0
-  IgnoreCheckpointsAlwaysRespawn: 1
-  AssociatedCheckpoints: []
-  AutoRespawnDuration: 0
-  AutoRespawnAmount: 3
-  AutoRespawnRemainingAmount: 3
-  RespawnEffect: {fileID: 0}
-  RespawnSfx: {fileID: 0}
+  AbilityStartSfx: {fileID: 8300000, guid: d263976f01a245e4fb18c0c5c505406b, type: 3}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  InitialWeapon: {fileID: 114594623923584052, guid: 9e254991b6e8e1344af3fab0176ecaf2,
+    type: 3}
+  CanPickupWeapons: 0
+  WeaponUseFeedback: {fileID: 0}
+  WeaponAttachment: {fileID: 4315474336313948}
+  ProjectileSpawn: {fileID: 0}
+  AutomaticallyBindAnimator: 1
+  AmmoDisplayID: 0
+  AutoIK: 1
+  ContinuousPress: 0
+  GettingHitInterruptsAttack: 0
+  UseSecondaryAxisThresholdToShoot: 0
+  BufferInput: 0
+  NewInputExtendsBuffer: 0
+  MaximumBufferDuration: 0.25
+  RequiresPerfectTile: 0
+  CurrentWeapon: {fileID: 0}
+--- !u!114 &8919888139408643256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498750440386690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16577831eb1538847a3d1802d9a738db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoRemoveAfterInitialization: 1
+  AddAnimationParametersButton: 0
 --- !u!1 &1561075265052736
 GameObject:
   m_ObjectHideFlags: 0
@@ -15417,7 +15473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865617948810876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.051, y: -0.139, z: 0}
+  m_LocalPosition: {x: -0.1830001, y: -0.3099999, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
