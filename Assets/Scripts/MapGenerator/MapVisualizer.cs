@@ -68,7 +68,14 @@ public class MapVisualizer : MonoBehaviour
                 .Select(x => new Vector2Int(x, y)))
             .Where(p => p != Vector2Int.zero)
             .Aggregate(0, (current, next) => (current << 1) | (tiles.Contains(next + tile) ? 1 : 0));
-        return tileMasks[mask];
-
+        if(tileMasks.ContainsKey(mask))
+        {
+            return tileMasks[mask];
+        }
+        else
+        {
+            Debug.Log($"Replaced {mask} with floor");
+            return Floor;
+        }
     }
 }
