@@ -1,35 +1,87 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
+using MoreMountains.TopDownEngine;
 using TMPro;
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.TextCore.Text;
-using UnityEngine.UI;
 
-public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class ButtonClick : MonoBehaviour
 {
+    [SerializeField] private static Sprite defaultState;
+    [SerializeField] private static  Sprite pressedState;
+    [SerializeField] private static TMP_FontAsset white;
+    [SerializeField] private static TMP_FontAsset black;
+    [SerializeField] public GameController gameController;
+    private static GameObject previous;
+    private static GameObject next;
 
-    [SerializeField] private SVGImage background;
-    [SerializeField] private Sprite defaultState;
-    [SerializeField] private Sprite pressed;
-    [SerializeField] private TMP_Text textField;
-    [SerializeField] private TMP_FontAsset white;
-    [SerializeField] private TMP_FontAsset black;
-    [SerializeField] private GameObject toChange;
-    [SerializeField] private GameObject canvas;
-    
-    public void OnPointerDown(PointerEventData eventData)
+    public void Awake()
     {
-        background.sprite = pressed;
-        textField.font = white;
+        white = Resources.Load<TMP_FontAsset>("Fonts/WhiteFont");
+        black = Resources.Load<TMP_FontAsset>("Fonts/BlackFont");
+        pressedState = Resources.Load<Sprite>("UI/pressed");
+        defaultState = Resources.Load<Sprite>("UI/defaultState");
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void SetButtonState(bool pressed, GameObject button)
     {
-        background.sprite = defaultState;
-        textField.font = black;
-        toChange.SetActive(true);
-        canvas.SetActive(false);
+        button.GetComponentInChildren<TMP_Text>().font = pressed ? white : black;
+        button.GetComponent<SVGImage>().sprite = pressed ? pressedState : defaultState;
+    }
+
+    public void OnPointerEnter(BaseEventData data)
+    {
+        var sender = (data as PointerEventData).pointerEnter;
+        SetButtonState(true, sender);
+    }
+
+    public void OnPointerExit(BaseEventData data)
+    {
+        var sender = (data as PointerEventData).pointerEnter;
+        SetButtonState(false, sender);
+    }
+
+    public void ReturnBack(BaseEventData data)
+    {
+        var sender = (data as PointerEventData).pointerEnter;
+        var menu = sender.transform.root.gameObject;
+        previous.SetActive(true);
+        previous = menu;
+        menu.SetActive(false);
+    }
+
+    public void Change(BaseEventData data)
+    {
+        var sender = (data as PointerEventData).pointerClick;
+        var menu = sender.transform.root.gameObject;
+        next.SetActive(true);
+        previous = menu;
+        SetButtonState(false, sender);
+        menu.SetActive(false);
+    }
+
+    public void SetNext(GameObject nextMenu)
+    {
+        next = nextMenu;
+    }
+
+    public void StartGame(BaseEventData data)
+    {
+        var sender = (data as PointerEventData).pointerClick;
+        var menu = sender.transform.root.gameObject;
+        menu.SetActive(false);
+        gameController.StartNewGame();
+    }
+
+    public void ContinueGame(BaseEventData data)
+    {
+        var sender = (data as PointerEventData).pointerClick;
+        var menu = sender.transform.root.gameObject;
+        menu.SetActive(false);
+    }
+
+    public void ExitApplication()
+    {
+        Application.Quit(0);
     }
 }

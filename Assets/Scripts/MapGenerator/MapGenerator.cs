@@ -25,6 +25,7 @@ namespace BSPTreeGeneration
 
         public void GenerateMap(int x, int y, int width, int height, int minWidth, int minHeight, int offset)
         {
+            tilemap.ClearAllTiles();
             var rooms = BSPAlgorithm.GetRooms(new BoundsInt(x, y, 0, width, height, 0), minHeight, minWidth);
             var tiles = GenerateRoomsWithOffset(rooms, offset);
             tiles.UnionWith(GenerateCorrdiors(rooms));
