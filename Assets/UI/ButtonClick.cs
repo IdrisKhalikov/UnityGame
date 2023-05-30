@@ -78,6 +78,15 @@ public class ButtonClick : MonoBehaviour
         var sender = (data as PointerEventData).pointerClick;
         var menu = sender.transform.root.gameObject;
         menu.SetActive(false);
+        gameController.IsPlaying = true;
+    }
+
+    public void LoadNextLevel(BaseEventData data)
+    {
+        var sender = (data as PointerEventData).pointerClick;
+        var menu = sender.transform.root.gameObject;
+        menu.SetActive(false);
+        gameController.CreateNewLevel();
     }
 
     public void ExitApplication()

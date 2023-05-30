@@ -4992,7 +4992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 256
   SkinWidth: 0.1
   RepositionRigidbody: 1
 --- !u!61 &61214810784111820
