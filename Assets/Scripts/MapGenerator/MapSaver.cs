@@ -12,7 +12,7 @@ public class MapSaver : MonoBehaviour
     [SerializeField]
     private int LevelId;
 
-    [ExecuteInEditMode]
+    //[ExecuteInEditMode]
     public void SaveMap()
     {
         var level = ScriptableObject.CreateInstance<ScriptableLevel>();
@@ -20,10 +20,10 @@ public class MapSaver : MonoBehaviour
         level.LevelId = LevelId;
         level.Tiles = GetAllTiles(Tilemap).ToList();
 
-        ScriptableObjectUtility.SaveLevelToFile(level);
+        //ScriptableObjectUtility.SaveLevelToFile(level);
     }
 
-    [ExecuteInEditMode]
+    //[ExecuteInEditMode]
     public void LoadMap()
     {
         var level = Resources.Load<ScriptableLevel>($"Levels/{LevelId}");
@@ -39,8 +39,8 @@ public class MapSaver : MonoBehaviour
         {
             switch(savedTile.Tile.Type)
             {
-                case TileType.Floor:
-                case TileType.Wall:
+                case TileType.Default:
+                case TileType.Ground:
                     Tilemap.SetTile(savedTile.Position, savedTile.Tile);
                     break;
                 default:
@@ -69,36 +69,36 @@ public class MapSaver : MonoBehaviour
     }
 }
 
-#if UNITY_EDITOR
-public static class ScriptableObjectUtility
-{
-    public static void SaveLevelToFile(ScriptableLevel level)
-    {
-        AssetDatabase.CreateAsset(level, $"Assets/Resources/Levels/{level.LevelId}.asset");
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-    }
-}
+//#if UNITY_EDITOR
+//public static class ScriptableObjectUtility
+//{
+//    public static void SaveLevelToFile(ScriptableLevel level)
+//    {
+//        AssetDatabase.CreateAsset(level, $"Assets/Resources/Levels/{level.LevelId}.asset");
+//        AssetDatabase.SaveAssets();
+//        AssetDatabase.Refresh();
+//    }
+//}
 
-#endif
+//#endif
 
 
-[CustomEditor(typeof(MapSaver)), CanEditMultipleObjects]
-public class MapSaverEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
+//[CustomEditor(typeof(MapSaver)), CanEditMultipleObjects]
+//public class MapSaverEditor : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        base.OnInspectorGUI();
 
-        var saver = (MapSaver)target;
+//        var saver = (MapSaver)target;
 
-        if (GUILayout.Button("Save"))
-            saver.SaveMap();
+//        if (GUILayout.Button("Save"))
+//            saver.SaveMap();
 
-        if (GUILayout.Button("Load"))
-            saver.LoadMap();
+//        if (GUILayout.Button("Load"))
+//            saver.LoadMap();
 
-        if (GUILayout.Button("ClearMap"))
-            saver.ClearMap();
-    }
-}
+//        if (GUILayout.Button("ClearMap"))
+//            saver.ClearMap();
+//    }
+//}

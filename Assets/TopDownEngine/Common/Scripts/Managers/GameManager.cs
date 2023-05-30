@@ -269,6 +269,7 @@ namespace MoreMountains.TopDownEngine
         public virtual void AddPoints(int pointsToAdd)
 		{
 			Points += pointsToAdd;
+			
             GUIManager.Instance.RefreshPoints();
         }
 		

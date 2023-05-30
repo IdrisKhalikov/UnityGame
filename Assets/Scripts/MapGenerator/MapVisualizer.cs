@@ -2,80 +2,149 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Linq;
+using UnityEditor;
 
-public class MapVisualizer : MonoBehaviour
+public class MapVisualizer
 {
     private Tilemap tilemap;
-    [SerializeField]
-    public TileBase Floor, LB, LU, RB, RU, LM, BM, RM, UM, CLU, CRU, CRB, CLB;
-    public Dictionary<int, TileBase> tileMasks;
+    private TileType tileType;
+    private Dictionary<int, TileBase> tileMasks;
 
-    public void Init(Tilemap tilemap)
+    public MapVisualizer(TileType tileType, Tilemap tilemap)
     {
+        this.tileType = tileType;
         this.tilemap = tilemap;
+        Init();
+    }
+
+    public void Init()
+    {
         tileMasks = new Dictionary<int, TileBase>
         {
-            {0b11111111, Floor },
-            {0b01101000, LU },
-            {0b11101000, LU },
-            {0b01101001, LU },
-            {0b11101001, LU },
-            {0b11111000, UM },
-            {0b11111100, UM },
-            {0b11111001, UM },
-            {0b11111101, UM },
-            {0b11010000, RU },
-            {0b11110000, RU },
-            {0b11010100, RU },
-            {0b11110100, RU },
-            {0b11010110, RM },
-            {0b11110110, RM },
-            {0b11010111, RM },
-            {0b11110111, RM },
-            {0b00010110, RB },
-            {0b10010110, RB },
-            {0b00010111, RB },
-            {0b10010111, RB },
-            {0b00011111, BM },
-            {0b10011111, BM },
-            {0b00111111, BM },
-            {0b10111111, BM },
-            {0b00001011, LB },
-            {0b00101011, LB },
-            {0b00001111, LB },
-            {0b00101111, LB },
-            {0b01101011, LM },
-            {0b11101011, LM },
-            {0b01101111, LM },
-            {0b11101111, LM },
-            {0b11111011, CLU },
-            {0b11111110, CRU },
-            {0b11011111, CRB },
-            {0b01111111, CLB }
+            {0b11111111, LoadTile("Floor") },
+            {0b01101000, LoadTile("LU") },
+            {0b11101000, LoadTile("LU") },
+            {0b01101001, LoadTile("LU") },
+            {0b11101001, LoadTile("LU") },
+            {0b11111000, LoadTile("UM") },
+            {0b11111100, LoadTile("UM") },
+            {0b11111001, LoadTile("UM") },
+            {0b11111101, LoadTile("UM") },
+            {0b11010000, LoadTile("RU") },
+            {0b11110000, LoadTile("RU") },
+            {0b11010100, LoadTile("RU") },
+            {0b11110100, LoadTile("RU") },
+            {0b11010110, LoadTile("RM") },
+            {0b11110110, LoadTile("RM") },
+            {0b11010111, LoadTile("RM") },
+            {0b11110111, LoadTile("RM") },
+            {0b00010110, LoadTile("RB") },
+            {0b10010110, LoadTile("RB") },
+            {0b00010111, LoadTile("RB") },
+            {0b10010111, LoadTile("RB") },
+            {0b00011111, LoadTile("BM") },
+            {0b10011111, LoadTile("BM") },
+            {0b00111111, LoadTile("BM") },
+            {0b10111111, LoadTile("BM") },
+            {0b00001011, LoadTile("LB") },
+            {0b00101011, LoadTile("LB") },
+            {0b00001111, LoadTile("LB") },
+            {0b00101111, LoadTile("LB") },
+            {0b01101011, LoadTile("LM") },
+            {0b11101011, LoadTile("LM") },
+            {0b01101111, LoadTile("LM") },
+            {0b11101111, LoadTile("LM") },
+            {0b11111011, LoadTile("CLU") },
+            {0b11111110, LoadTile("CRU") },
+            {0b11011111, LoadTile("CRB") },
+            {0b01111111, LoadTile("CLB") }
         };
     }
 
-    public void RenderMap(HashSet<Vector2Int> tiles)
+    private TileBase LoadTile(string name)
     {
-        foreach(var tile in tiles)
-            tilemap.SetTile((Vector3Int)tile, GetTileBase(tile, tiles));
+        return Resources.Load<TileBase>($"MapTiles/{tileType}/{name}");
     }
 
-    public TileBase GetTileBase(Vector2Int tile, HashSet<Vector2Int> tiles)
+    public void RenderMap(HashSet<LevelTile> tiles, HashSet<LevelTile> allTiles)
+    {
+        foreach (var tile in tiles)
+        {
+            if (tile.Type == TileType.Corridor || tile.Type == TileType.Ground)
+                tilemap.SetTile((Vector3Int)tile.Position, GetTileBase(tile, allTiles));
+        }
+    }
+
+    public TileBase GetTileBase(LevelTile tile, HashSet<LevelTile> tiles)
     {
         var mask = Enumerable.Range(-1, 3)
             .SelectMany(y => Enumerable.Range(-1, 3)
-                .Select(x => new Vector2Int(x, y)))
-            .Where(p => p != Vector2Int.zero)
-            .Aggregate(0, (current, next) => (current << 1) | (tiles.Contains(next + tile) ? 1 : 0));
-        if(tileMasks.ContainsKey(mask))
+                .Select(x => new Vector3Int(x, y)))
+            .Where(p => p != Vector3Int.zero)
+            .Aggregate(0, (current, next)
+            => (current << 1) | (tiles.Contains(new LevelTile(tile.Position + next)) ? 1 : 0));
+        if (tileMasks.ContainsKey(mask))
         {
             return tileMasks[mask];
         }
         else
         {
             Debug.Log($"Replaced {mask} with floor");
-            return Floor;
+            return tileMasks[0];
+        }
+    }
+}
+
+class SimpleVisualizer
+{
+    private Tilemap tilemap;
+    private TileType tileType;
+    private TileBase tileBase;
+
+    public SimpleVisualizer(Tilemap tilemap, TileType tileType)
+    {
+        this.tilemap = tilemap;
+        this.tileType = tileType;
+        tileBase = Resources.Load<TileBase>($"MapTiles/{tileType}/Floor");
+    }
+
+    public void RenderMap(HashSet<LevelTile> tiles)
+    {
+        foreach (var tile in tiles)
+        {
+            tilemap.SetTile(tile.Position, tileBase);
+        }
+    }
+}
+
+class RandomVisualizer
+{
+    private Tilemap tilemap;
+    private List<TileBase> tileBases;
+
+    public RandomVisualizer(Tilemap tilemap, List<TileBase> tiles)
+    {
+        this.tilemap = tilemap;
+        tileBases = tiles;
+        Debug.Log(tiles.Count);
+    }
+
+    public void RenderMap(List<BoundsInt> rooms, int minCount, int maxCount)
+    {
+        var placedPositions = new HashSet<Vector3Int>();
+        foreach (var room in rooms)
+        {
+            var amount = Random.Range(minCount, maxCount);
+            for (var i = 0; i < amount; i++)
+            {
+                var x = Random.Range(2, room.size.x - 1);
+                var y = Random.Range(2, room.size.y - 1);
+                var position = new Vector3Int(x, y) + room.min;
+                if (placedPositions.Contains(position))
+                    continue;
+                tilemap.SetTile(position, tileBases[Random.Range(0, tileBases.Count)]);
+                placedPositions.Add(position);
+            }
         }
     }
 }

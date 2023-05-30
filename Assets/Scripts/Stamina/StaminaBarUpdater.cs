@@ -1,6 +1,8 @@
-﻿using MoreMountains.Tools;
+﻿using System;
+using MoreMountains.Tools;
 using MoreMountains.TopDownEngine;
 using UnityEngine;
+using GameController;
 
 namespace Stamina
 {
@@ -19,6 +21,7 @@ namespace Stamina
         {
             _bar = GetComponent<MMProgressBar>();
             this.MMEventStartListening<TopDownEngineEvent>();
+            Target = GameController.GameController.PlayerCharacter;
         }
 
         public void OnMMEvent(StaminaUpdateEvent staminaUpdateEvent)
@@ -29,9 +32,16 @@ namespace Stamina
 
         public void OnMMEvent(TopDownEngineEvent topDownEngineEvent)
         {
-            if (topDownEngineEvent.EventType == TopDownEngineEventTypes.SpawnCharacterStarts && !UseCustomTarget) Target = LevelManager.Instance.Players[0].gameObject;
+            if (GameController.GameController.PlayerCharacter is not null && Target != GameController.GameController.PlayerCharacter)
+                Target = GameController.GameController.PlayerCharacter;
         }
-        
+
+        public void Update()
+        {
+            if (GameController.GameController.PlayerCharacter is not null && Target != GameController.GameController.PlayerCharacter)
+                Target = GameController.GameController.PlayerCharacter;
+        }
+
         private void OnEnable()
         {
             this.MMEventStartListening<StaminaUpdateEvent>();

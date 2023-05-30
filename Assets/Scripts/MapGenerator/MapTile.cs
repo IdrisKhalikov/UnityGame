@@ -9,8 +9,3 @@ public class MapTile : Tile
     public TileType Type;
 }
 
-public enum TileType
-{
-    Floor = 0,
-    Wall = 1
-}

@@ -178,10 +178,16 @@ namespace MoreMountains.TopDownEngine
         protected override void CheckIfGrounded()
         {
             _groundedTest = Physics2D.OverlapPoint((Vector2)this.transform.position, GroundLayerMask);
-            _holeTestMin = Physics2D.OverlapPoint((Vector2)ColliderBounds.min, HoleLayerMask);
-            _holeTestMax = Physics2D.OverlapPoint((Vector2)ColliderBounds.max, HoleLayerMask);
+            //_holeTestMin = Physics2D.OverlapPoint((Vector2)ColliderBounds.min, HoleLayerMask);
+            //_holeTestMax = Physics2D.OverlapPoint((Vector2)ColliderBounds.max, HoleLayerMask);
+
+            //Чутка переписал код, чтобы персонаж "падал", не при нахождении на определенном слое,
+            //а тогда, когда не стоит на слое "Ground".
+            _holeTestMin = Physics2D.OverlapPoint((Vector2)ColliderBounds.min, GroundLayerMask);
+            _holeTestMax = Physics2D.OverlapPoint((Vector2)ColliderBounds.max, GroundLayerMask);
             Grounded = (_groundedTest != null);
-            OverHole = ((_holeTestMin != null) && (_holeTestMax != null));                        
+            //OverHole = ((_holeTestMin != null) && (_holeTestMax != null));
+            OverHole = ((_holeTestMin == null) && (_holeTestMax == null));
             JustGotGrounded = (!_groundedLastFrame && Grounded);
             _groundedLastFrame = Grounded;
         }
