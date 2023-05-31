@@ -4942,6 +4942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2327549082473294525}
   - component: {fileID: 2374465151424397185}
+  - component: {fileID: 1407654182421989822}
   - component: {fileID: 2348841694361386061}
   - component: {fileID: 2499236669365039319}
   - component: {fileID: 2438045755681892253}
@@ -4958,9 +4959,9 @@ GameObject:
   - component: {fileID: 2437789940715566383}
   - component: {fileID: 2439401147963574603}
   - component: {fileID: 2437845140208405313}
-  - component: {fileID: 467072173}
   - component: {fileID: 4166429331143928054}
   - component: {fileID: 5888748912479465503}
+  - component: {fileID: 2498687471988276271}
   m_Layer: 13
   m_Name: Rootkit
   m_TagString: Enemy
@@ -5008,6 +5009,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &1407654182421989822
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2325596686016990461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0037336051, y: -0.001244545}
+  m_Size: {x: 0.41786098, y: 0.6742343}
+  m_Direction: 0
 --- !u!61 &2348841694361386061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5015,7 +5032,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2325596686016990461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5221,7 +5238,7 @@ MonoBehaviour:
   WeaponUseFeedback: {fileID: 0}
   WeaponAttachment: {fileID: 2329223127028552551}
   ProjectileSpawn: {fileID: 0}
-  AutomaticallyBindAnimator: 0
+  AutomaticallyBindAnimator: 1
   AmmoDisplayID: 0
   AutoIK: 1
   ContinuousPress: 0
@@ -5332,7 +5349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  Radius: 4
+  Radius: 9
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2
@@ -5340,11 +5357,11 @@ MonoBehaviour:
   ObstacleDetection: 1
   ObstacleMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 33025
   ObstaclesDetectionMode: 1
   CanTargetSelf: 0
-  TargetCheckFrequency: 1
-  OverlapMaximum: 10
+  TargetCheckFrequency: 0.51
+  OverlapMaximum: 3
 --- !u!114 &2438468500197026521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5384,9 +5401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  TargetHandleWeaponAbility: {fileID: 2438556504580228067}
+  TargetHandleWeaponAbility: {fileID: 0}
   AimOrigin: 0
-  FaceTarget: 0
+  FaceTarget: 1
   AimAtTarget: 1
 --- !u!114 &2439401147963574603
 MonoBehaviour:
@@ -5402,7 +5419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: 
   ComparisonMode: 1
-  Distance: 9
+  Distance: 10
 --- !u!114 &2437845140208405313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5418,7 +5435,7 @@ MonoBehaviour:
   HealthBarType: 1
   TimeScale: 0
   HealthBarPrefab: {fileID: 0}
-  Size: {x: 1, y: 0.4}
+  Size: {x: 0.6, y: 0.4}
   BackgroundPadding: {x: 0.05, y: 0.05}
   InitialRotationAngles: {x: 0, y: 0, z: 0}
   ForegroundColor:
@@ -5604,19 +5621,6 @@ MonoBehaviour:
   DisplayDurationOnHit: 1
   HideBarAtZero: 1
   HideBarAtZeroDelay: 0
---- !u!114 &467072173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2325596686016990461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758bd960e1ca6d41828c58712425d60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: 
 --- !u!114 &4166429331143928054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5630,7 +5634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  MinimumDistance: 1
+  MinimumDistance: 3
 --- !u!114 &5888748912479465503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,6 +5647,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17531f928e02e43b1dbd9cd8872a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &2498687471988276271
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2325596686016990461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.23118135, y: -0.0024890602}
+  - {x: -0.25658238, y: -0.03050442}
+  - {x: -0.24525785, y: -0.100456215}
+  - {x: -0.21318956, y: -0.11102293}
+  - {x: -0.21204875, y: -0.15972647}
+  - {x: -0.26614007, y: -0.27132586}
+  - {x: -0.18641704, y: -0.3105795}
+  - {x: 0.016582627, y: -0.34846863}
+  - {x: 0.21352372, y: -0.29095685}
+  - {x: 0.27700838, y: -0.26910472}
+  - {x: 0.27020413, y: -0.22779591}
+  - {x: 0.2195887, y: -0.17169935}
+  - {x: 0.2051526, y: -0.11144971}
+  - {x: 0.24241069, y: -0.113789506}
+  - {x: 0.21829838, y: -0.014934387}
+  - {x: 0.12590294, y: 0.25156564}
+  - {x: 0.013232291, y: 0.3498068}
+  - {x: -0.0920236, y: 0.2916861}
+  - {x: -0.16784446, y: 0.09095602}
+  - {x: -0.2442295, y: -0.019912466}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &2325619290637431437
 GameObject:
   m_ObjectHideFlags: 0

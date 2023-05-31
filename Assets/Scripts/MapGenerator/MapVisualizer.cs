@@ -137,8 +137,8 @@ class RandomVisualizer
             var amount = Random.Range(minCount, maxCount);
             for (var i = 0; i < amount; i++)
             {
-                var x = Random.Range(2, room.size.x - 2);
-                var y = Random.Range(2, room.size.y - 2);
+                var x = Random.Range(2, room.size.x - 1);
+                var y = Random.Range(2, room.size.y - 1);
                 var position = new Vector3Int(x, y) + room.min;
                 if (placedPositions.Contains(position))
                     continue;

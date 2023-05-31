@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4565189611861034}
   - component: {fileID: 114140059323251502}
   - component: {fileID: 114594623923584052}
+  - component: {fileID: 8800998143750470642}
   m_Layer: 10
   m_Name: Player Keyboard weapon
   m_TagString: Player
@@ -96,7 +97,7 @@ MonoBehaviour:
   AutoDestroyWhenEmpty: 0
   AutoDestroyWhenEmptyDelay: 1
   CurrentAmmoLoaded: 30
-  WeaponAttachmentOffset: {x: 0, y: 0.31, z: 0}
+  WeaponAttachmentOffset: {x: 0.31, y: 0.31, z: 0}
   FlipWeaponOnCharacterFlip: 1
   RightFacingFlipValue: {x: 1, y: 1, z: 1}
   LeftFacingFlipValue: {x: -1, y: 1, z: 1}
@@ -133,8 +134,8 @@ MonoBehaviour:
   Interruptable: 0
   Flipped: 0
   DamageAreaShape: 0
-  AreaSize: {x: 3, y: 2, z: 0}
-  AreaOffset: {x: 1, y: 0, z: 0}
+  AreaSize: {x: 2, y: 2, z: 0}
+  AreaOffset: {x: 0, y: 0, z: 0}
   HitDamageableFeedback: {fileID: 0}
   HitNonDamageableFeedback: {fileID: 0}
   InitialDelay: 0
@@ -148,6 +149,24 @@ MonoBehaviour:
   KnockbackForce: {x: 500, y: 0, z: 0}
   InvincibilityDuration: 0.5
   CanDamageOwner: 0
+--- !u!114 &8800998143750470642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831551693771866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a1ad332e670b84fb2ee52316f58ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Angle: 4.88
+  Distance: 2
+  RaycastOriginOffset: {x: 0, y: 0, z: 0}
+  ObstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6211418183160165590
 GameObject:
   m_ObjectHideFlags: 0

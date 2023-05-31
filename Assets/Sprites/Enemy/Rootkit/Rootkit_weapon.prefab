@@ -123,9 +123,9 @@ MonoBehaviour:
   AutoDestroyWhenEmptyDelay: 1
   CurrentAmmoLoaded: 0
   WeaponAttachmentOffset: {x: 0, y: 0, z: 0}
-  FlipWeaponOnCharacterFlip: 0
-  RightFacingFlipValue: {x: 0, y: 0, z: 0}
-  LeftFacingFlipValue: {x: 0, y: 0, z: 0}
+  FlipWeaponOnCharacterFlip: 1
+  RightFacingFlipValue: {x: 1, y: 1, z: 1}
+  LeftFacingFlipValue: {x: -1, y: 1, z: 1}
   WeaponUseTransform: {fileID: 0}
   LeftHandHandle: {fileID: 0}
   RightHandHandle: {fileID: 0}
@@ -159,7 +159,7 @@ MonoBehaviour:
   InitializeOnStart: 1
   Interruptable: 0
   Flipped: 0
-  ProjectileSpawnOffset: {x: 0, y: 0, z: 0}
+  ProjectileSpawnOffset: {x: 0.07, y: 0.07, z: 0}
   ProjectilesPerShot: 1
   SpawnTransforms: []
   SpawnTransformsMode: 1
@@ -215,7 +215,7 @@ MonoBehaviour:
   ReplaceMousePointer: 1
   MouseDeadZoneRadius: 0.5
   DisplayReticle: 1
-  MoveCameraTargetTowardsReticle: 1
+  MoveCameraTargetTowardsReticle: 0
   CameraTargetOffset: 0.3
   CameraTargetMaxDistance: 2
   CameraTargetSpeed: 5

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using GameController;
 
 public class ScoreUpdater : MonoBehaviour
 {
@@ -9,12 +10,12 @@ public class ScoreUpdater : MonoBehaviour
     void Start()
     {
         GetComponent<TMP_Text>().text 
-            = GameObject.Find("GameController").GetComponent<GameController>().Score.ToString();
+            = GameObject.Find("GameController").GetComponent<GameController.GameController>().Score.ToString();
     }
 
     private void OnEnable()
     {
         GetComponent<TMP_Text>().text
-            = GameObject.Find("GameController").GetComponent<GameController>().Score.ToString();
+            = GameObject.Find("GameController").GetComponent<GameController.GameController>().Score.ToString();
     }
 }

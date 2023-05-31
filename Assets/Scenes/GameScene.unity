@@ -10710,6 +10710,63 @@ MonoBehaviour:
   TestTransitionDuration: 0.1
   TestDuration: 0.05
   TestZoomButton: 0
+--- !u!1001 &529133720
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1498750440386690, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -43.890617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001341059962208, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ac850955aaeb4544bf50b9b9abba007, type: 3}
 --- !u!1 &623523220
 GameObject:
   m_ObjectHideFlags: 0

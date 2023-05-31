@@ -1,9 +1,11 @@
 using Cinemachine;
+using MoreMountains.Feedbacks;
 using MoreMountains.TopDownEngine;
 using TMPro;
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using GameController;
 
 public class ButtonClick : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class ButtonClick : MonoBehaviour
     [SerializeField] private static  Sprite pressedState;
     [SerializeField] private static TMP_FontAsset white;
     [SerializeField] private static TMP_FontAsset black;
-    [SerializeField] public GameController gameController;
+    [SerializeField] public GameController.GameController gameController;
     private static GameObject previous;
     private static GameObject next;
 
@@ -78,6 +80,7 @@ public class ButtonClick : MonoBehaviour
         var sender = (data as PointerEventData).pointerClick;
         var menu = sender.transform.root.gameObject;
         menu.SetActive(false);
+        MMFreezeFrameEvent.Trigger(float.NaN);
         gameController.IsPlaying = true;
     }
 
