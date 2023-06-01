@@ -134,8 +134,7 @@ MonoBehaviour:
   PreventAllMovementWhileInUse: 0
   PreventAllAimWhileInUse: 0
   RecoilForce: 0
-  Animators:
-  - {fileID: 95036209968351816}
+  Animators: []
   PerformAnimatorSanityChecks: 0
   WeaponAnimationID: 0
   IdleAnimationParameter: 
@@ -714,16 +713,16 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: eb12ab69950fcbe4bae0843d0aaffbc0, type: 3}
+  Sfx: {fileID: 8300000, guid: 3cba96e4cfc7cdd48bc897e82327a261, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
   PlayMethod: 0
   PoolSize: 10
   MinVolume: 1
-  MaxVolume: 1
+  MaxVolume: 1.55
   MinPitch: 1
-  MaxPitch: 1
+  MaxPitch: 1.33
   SfxAudioMixerGroup: {fileID: 0}
 --- !u!114 &1060309465693169062
 MonoBehaviour:

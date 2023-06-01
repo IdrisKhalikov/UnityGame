@@ -126,7 +126,6 @@ class RandomVisualizer
     {
         this.tilemap = tilemap;
         tileBases = tiles;
-        Debug.Log(tiles.Count);
     }
 
     public void RenderMap(List<BoundsInt> rooms, int minCount, int maxCount)

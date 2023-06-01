@@ -240,7 +240,7 @@ namespace MoreMountains.TopDownEngine
         }
 
         /// <summary>
-        /// Use this method to increase the max amount of lives, and optionnally the current amount as well
+        /// Use this method to increase the max amount of lives, and optionally the current amount as well
         /// </summary>
         /// <param name="lives">Lives.</param>
         /// <param name="increaseCurrent">If set to <c>true</c> increase current.</param>
@@ -340,14 +340,17 @@ namespace MoreMountains.TopDownEngine
 			{ 
 				GUIManager.Instance.SetPauseScreen(false);
 				_pauseMenuOpen = false;
+				GUIManager.Instance.SetSettingsScreen(false);
 				SetActiveInventoryInputManager (true);
 			}
 			if (_inventoryOpen)
 			{
 				_inventoryOpen = false;
             }
+			
             LevelManager.Instance.ToggleCharacterPause();
         }
+        
         
         /// <summary>
         /// Stores the points of entry for the level whose name you pass as a parameter.
@@ -474,25 +477,28 @@ namespace MoreMountains.TopDownEngine
         /// </summary>
         /// <param name="engineEvent">TopDownEngineEvent event.</param>
         public virtual void OnMMEvent(TopDownEngineEvent engineEvent)
-		{
+        {
 			switch (engineEvent.EventType)
 			{
                 case TopDownEngineEventTypes.TogglePause:
+	                Debug.Log("TGP");
                     if (Paused)
                     {
+	                    Debug.Log("TogglePause Paused");
                         TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
                     }
                     else
                     {
+	                    Debug.Log("TGP not paused");
                         TopDownEngineEvent.Trigger(TopDownEngineEventTypes.Pause, null);
                     }
                     break;
 				case TopDownEngineEventTypes.Pause:
-					Pause ();
+					Pause();
 					break;
 
 				case TopDownEngineEventTypes.UnPause:
-					UnPause ();
+					UnPause();
 					break;
 			}
 		}

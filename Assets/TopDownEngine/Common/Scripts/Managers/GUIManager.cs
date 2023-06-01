@@ -33,7 +33,7 @@ namespace MoreMountains.TopDownEngine
 		/// the death screen
 		[Tooltip("the death screen")]
 		public GameObject DeathScreen;
-		/// The mobile buttons
+		public GameObject SettingsScreen;
 		[Tooltip("The mobile buttons")]
 		public CanvasGroup Buttons;
 		/// The mobile arrows
@@ -184,6 +184,15 @@ namespace MoreMountains.TopDownEngine
                 PauseScreen.SetActive(state);
                 EventSystem.current.sendNavigationEvents = state;
             }
+        }
+
+        public virtual void SetSettingsScreen(bool state)
+        {
+	        if (SettingsScreen != null)
+	        {
+		        SettingsScreen.SetActive(state);
+		        EventSystem.current.sendNavigationEvents = state;
+	        }
         }
 
         /// <summary>

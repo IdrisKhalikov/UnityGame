@@ -55,6 +55,11 @@ namespace MoreMountains.TopDownEngine
             _condition.ChangeState(CharacterStates.CharacterConditions.Paused);
         }
 
+        public virtual void UnPauseCharacterForce()
+        {
+            _condition.ChangeState(CharacterStates.CharacterConditions.Normal);
+        }
+
         /// <summary>
         /// Restores the character to the state it was in before the pause.
         /// </summary>

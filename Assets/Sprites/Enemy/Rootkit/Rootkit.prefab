@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.24}
+  m_Size: {x: 0.5625, y: 0.703125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5124,6 +5124,7 @@ MonoBehaviour:
   AdditionalAbilityNodes: []
   CharacterBrain: {fileID: 0}
   OptimizeForMobile: 1
+  _isStart: 1
 --- !u!114 &2437610970478215801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5274,7 +5275,7 @@ MonoBehaviour:
   PreventTakeSelfDamage: 0
   DestroyOnDeath: 1
   DelayBeforeDestruction: 0
-  PointsWhenDestroyed: 0
+  PointsWhenDestroyed: 15
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
@@ -5349,7 +5350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  Radius: 9
+  Radius: 5
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2
@@ -10778,7 +10779,7 @@ MonoBehaviour:
           TargetBPM: 120
         Owner: {fileID: 5416683875187244353}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: a4ce1e0e50d887641b42f7507d3951bb, type: 3}
+        Sfx: {fileID: 8300000, guid: 95b38e6e4faf59349bd38c0ee602e578, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
@@ -10786,10 +10787,10 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         PlayMethod: 0
         PoolSize: 10
-        MinVolume: 1
-        MaxVolume: 1
-        MinPitch: 1
-        MaxPitch: 1
+        MinVolume: 0.79
+        MaxVolume: 0.91
+        MinPitch: 0.82
+        MaxPitch: 1.18
         SfxAudioMixerGroup: {fileID: 0}
 --- !u!1 &3656023103259124891
 GameObject:
@@ -10933,7 +10934,7 @@ MonoBehaviour:
           TargetBPM: 120
         Owner: {fileID: 5339893667805736691}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 51f2769dc716d1148844990d0d22ecd9, type: 3}
+        Sfx: {fileID: 8300000, guid: eb12ab69950fcbe4bae0843d0aaffbc0, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
@@ -10941,10 +10942,10 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         PlayMethod: 0
         PoolSize: 10
-        MinVolume: 1
-        MaxVolume: 1
-        MinPitch: 1
-        MaxPitch: 1
+        MinVolume: 0.97
+        MaxVolume: 1.17
+        MinPitch: 0.86
+        MaxPitch: 1.24
         SfxAudioMixerGroup: {fileID: 0}
     - rid: 1461634271267258371
       type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}

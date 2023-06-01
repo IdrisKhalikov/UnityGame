@@ -117,7 +117,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4736116768674126}
   - component: {fileID: 50872317139119918}
-  - component: {fileID: 61875899894898256}
+  - component: {fileID: -9207311196835929696}
+  - component: {fileID: 8766390901658675136}
   - component: {fileID: 210462174901479078}
   - component: {fileID: 114002022934925870}
   - component: {fileID: 114184945564206620}
@@ -131,17 +132,10 @@ GameObject:
   - component: {fileID: 114472236543704332}
   - component: {fileID: 114103483350062584}
   - component: {fileID: 114778105809703722}
-  - component: {fileID: 8776024748931807386}
-  - component: {fileID: 3639969091571161668}
-  - component: {fileID: 2532356361885615430}
-  - component: {fileID: 5186093840715337712}
-  - component: {fileID: 7148256701818954341}
   - component: {fileID: 6566028149044777769}
-  - component: {fileID: 4424872399747508888}
-  - component: {fileID: 4442864139292855461}
-  - component: {fileID: -2284908533515278085}
-  - component: {fileID: 7516503372896608605}
-  - component: {fileID: 6023189758751947776}
+  - component: {fileID: 5898065753683112968}
+  - component: {fileID: 3283033746753190312}
+  - component: {fileID: 8586968980550997226}
   m_Layer: 13
   m_Name: TrojanHorse
   m_TagString: Enemy
@@ -158,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 1561694053617324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4398990619741280}
@@ -189,7 +183,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &61875899894898256
+--- !u!61 &-9207311196835929696
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,19 +196,59 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009458542, y: -0.00032436848}
+  m_Offset: {x: 0.00056423247, y: -0.0010237843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.8}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21539688, y: 0.3066349}
+  m_Size: {x: 0.21815947, y: 0.3097376}
   m_EdgeRadius: 0
+--- !u!68 &8766390901658675136
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561694053617324}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.06856805, y: -0.06051254}
+  - {x: -0.07316481, y: -0.10431583}
+  - {x: -0.0955608, y: -0.15016073}
+  - {x: 0.0947616, y: -0.15069993}
+  - {x: 0.08826891, y: -0.11855386}
+  - {x: 0.06386285, y: -0.09245145}
+  - {x: 0.07485126, y: -0.05790373}
+  - {x: 0.06295202, y: -0.026934754}
+  - {x: 0.089049265, y: -0.024497671}
+  - {x: 0.10583638, y: 0.009646805}
+  - {x: 0.08706833, y: 0.036855757}
+  - {x: 0.07254002, y: 0.06649772}
+  - {x: 0.08750568, y: 0.0816509}
+  - {x: 0.08801912, y: 0.1166019}
+  - {x: 0.018711805, y: 0.1443992}
+  - {x: -0.014693007, y: 0.15071875}
+  - {x: -0.06648557, y: 0.10236746}
+  - {x: -0.107863724, y: 0.04093843}
+  - {x: -0.1081361, y: -0.022798942}
+  - {x: -0.063663006, y: -0.06275374}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!210 &210462174901479078
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -288,6 +322,7 @@ MonoBehaviour:
   AdditionalAbilityNodes: []
   CharacterBrain: {fileID: 0}
   OptimizeForMobile: 1
+  _isStart: 1
 --- !u!114 &114436691134650644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,9 +434,9 @@ MonoBehaviour:
   DamageMMFeedbacks: {fileID: 3547864438223399480}
   FeedbackIsProportionalToDamage: 0
   PreventTakeSelfDamage: 0
-  DestroyOnDeath: 0
+  DestroyOnDeath: 1
   DelayBeforeDestruction: 0
-  PointsWhenDestroyed: 0
+  PointsWhenDestroyed: 10
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
@@ -436,49 +471,34 @@ MonoBehaviour:
   - StateName: Detecting
     Actions:
       array:
-      - {fileID: 2532356361885615430}
+      - {fileID: 114472236543704332}
     Transitions:
       array:
-      - Decision: {fileID: 7148256701818954341}
+      - Decision: {fileID: 114975266224184248}
         TrueState: Movement
         FalseState: 
   - StateName: Movement
     Actions:
       array:
-      - {fileID: 2532356361885615430}
-      - {fileID: 2532356361885615430}
-    Transitions:
-      array:
-      - Decision: {fileID: 4442864139292855461}
-        TrueState: Detecting
-        FalseState: 
-  - StateName: Moving
-    Actions:
-      array:
-      - {fileID: 2532356361885615430}
-      - {fileID: 2532356361885615430}
+      - {fileID: 5898065753683112968}
     Transitions:
       array:
       - Decision: {fileID: 6566028149044777769}
+        TrueState: wait
+        FalseState: 
+      - Decision: {fileID: 3283033746753190312}
         TrueState: Detecting
         FalseState: 
-  - StateName: JumpFly
+  - StateName: wait
     Actions:
       array:
-      - {fileID: 2532356361885615430}
-      - {fileID: 2532356361885615430}
+      - {fileID: 114472236543704332}
     Transitions:
       array:
-      - Decision: {fileID: 4442864139292855461}
-        TrueState: JumpEnd
+      - Decision: {fileID: 6566028149044777769}
+        TrueState: Movement
         FalseState: 
-  - StateName: JumpEnd
-    Actions:
-      array:
-      - {fileID: 2532356361885615430}
-    Transitions:
-      array:
-      - Decision: {fileID: 4442864139292855461}
+      - Decision: {fileID: 3283033746753190312}
         TrueState: Detecting
         FalseState: 
   TimeInThisState: 0
@@ -558,10 +578,10 @@ MonoBehaviour:
     m_Bits: 1024
   MinDamageCaused: 10
   MaxDamageCaused: 10
-  DamageCausedKnockbackType: 2
-  DamageCausedKnockbackDirection: 0
+  DamageCausedKnockbackType: 1
+  DamageCausedKnockbackDirection: 2
   DamageCausedKnockbackForce: {x: 500, y: 500, z: 0}
-  InvincibilityDuration: 1
+  InvincibilityDuration: 0.75
   DamageOnTriggerEnterOnly: 0
   DamageTakenEveryTime: 0
   DamageTakenDamageable: 0
@@ -587,7 +607,7 @@ MonoBehaviour:
   HealthBarType: 1
   TimeScale: 0
   HealthBarPrefab: {fileID: 0}
-  Size: {x: 1.5, y: 0.4}
+  Size: {x: 0.5, y: 0.13}
   BackgroundPadding: {x: 0.05, y: 0.05}
   InitialRotationAngles: {x: 0, y: 0, z: 0}
   ForegroundColor:
@@ -773,109 +793,6 @@ MonoBehaviour:
   DisplayDurationOnHit: 1
   HideBarAtZero: 1
   HideBarAtZeroDelay: 0
---- !u!114 &8776024748931807386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561694053617324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c86c96e06d6ae44b822a6ab24e1b8fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
-  AbilityInProgressSfx: {fileID: 0}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  JumpDuration: 1
-  JumpProportionalToPress: 0
-  MinimumPressTime: 0.4
-  JumpStartFeedback: {fileID: 0}
-  JumpStopFeedback: {fileID: 0}
---- !u!114 &3639969091571161668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561694053617324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd23a4852e32195488e9fbbb86f6dcba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: 
-  MinimumDistance: 1
---- !u!114 &2532356361885615430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561694053617324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010f9641519864147805d7b4f5edb2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: 
-  LockRotationX: 0
---- !u!114 &5186093840715337712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561694053617324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 713a7621405152840b50c815ea8e6a66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
-  AbilityInProgressSfx: {fileID: 0}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  RotationMode: 3
-  ForcedRotation: 1
-  ForcedRotationDirection: {x: 0, y: 0, z: 0}
-  ShouldRotateToFaceMovementDirection: 0
-  MovementRotationSpeed: 0
-  MovementRotatingModel: {fileID: 0}
-  RotateToFaceMovementDirectionSpeed: 10
-  AbsoluteThresholdMovement: 0.5
-  ModelDirection: {x: 0, y: 0, z: 0}
-  ModelAngles: {x: 0, y: 0, z: 0}
-  ShouldRotateToFaceWeaponDirection: 0
-  WeaponRotationSpeed: 0
-  WeaponRotatingModel: {fileID: 0}
-  RotateToFaceWeaponDirectionSpeed: 10
-  AbsoluteThresholdWeapon: 0.5
---- !u!114 &7148256701818954341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561694053617324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21818f4def5bf646bec3d25770336cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: forMove
-  AfterTimeMin: 1
-  AfterTimeMax: 5
 --- !u!114 &6566028149044777769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,10 +805,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21818f4def5bf646bec3d25770336cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: AfterMove
+  Label: 
   AfterTimeMin: 1
   AfterTimeMax: 1
---- !u!114 &4424872399747508888
+--- !u!114 &5898065753683112968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -900,12 +817,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561694053617324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a9aa9d1d895f04095fc4aabe8db6ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 47557c9dd44293a41bc6710b083332de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  OnlyRunOnce: 1
---- !u!114 &4442864139292855461
+  MinimumDistance: 0.1
+--- !u!114 &3283033746753190312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -914,11 +831,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561694053617324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c77c71de934d5409ac7258ff688672, type: 3}
+  m_Script: {fileID: 11500000, guid: 206825d6db9c84741810b9da915cfb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
---- !u!114 &-2284908533515278085
+  ComparisonMode: 3
+  Distance: 19
+--- !u!114 &8586968980550997226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -927,46 +846,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1561694053617324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c299b2a4b049741af998bb425ea7a3, type: 3}
+  m_Script: {fileID: 11500000, guid: fa17531f928e02e43b1dbd9cd8872a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: 
-  GroundedBufferDelay: 0.2
---- !u!114 &7516503372896608605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561694053617324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 106a6eefe87deeb4dbbc38dba65826dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: 
-  MaximumDistance: 5
---- !u!114 &6023189758751947776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561694053617324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8135bf55f3495254099bc5daee8423d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: 
-  MaximumDurationInADirection: 6
-  ObstacleLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  ObstaclesDetectionDistance: 1
-  ObstaclesCheckFrequency: 1
-  MinimumRandomDirection: {x: -1, y: -1}
-  MaximumRandomDirection: {x: 1, y: 1}
 --- !u!1 &1671905898232590
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,7 +5891,19 @@ MonoBehaviour:
     TriggerUnityEvents: 1
     OnPlay:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 8586968980550997226}
+          m_TargetAssemblyTypeName: OnDestroyEvent, Assembly-CSharp
+          m_MethodName: SendEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     OnPause:
       m_PersistentCalls:
         m_Calls: []
@@ -6059,7 +5953,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 51f2769dc716d1148844990d0d22ecd9, type: 3}
+  Sfx: {fileID: 8300000, guid: a3e47e0bc24a6504592a81610950a9db, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
@@ -6272,7 +6166,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: a4ce1e0e50d887641b42f7507d3951bb, type: 3}
+  Sfx: {fileID: 8300000, guid: ae4104e139a47d74d9b2bec139b692dd, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0

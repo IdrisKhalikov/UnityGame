@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a1ad332e670b84fb2ee52316f58ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Angle: 4.88
-  Distance: 2
+  Angle: 1
+  Distance: 1
   RaycastOriginOffset: {x: 0, y: 0, z: 0}
   ObstacleLayerMask:
     serializedVersion: 2
@@ -517,7 +517,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 4c9ca74b97a69eb4f833f0c57e308de9, type: 3}
+  Sfx: {fileID: 8300000, guid: dfc9275478709c54c921e72a500a5f3d, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0

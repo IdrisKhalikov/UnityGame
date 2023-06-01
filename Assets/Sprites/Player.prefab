@@ -9824,10 +9824,10 @@ GameObject:
   - component: {fileID: 114104414726605804}
   - component: {fileID: 114171358364461030}
   - component: {fileID: 4079558810237503720}
-  - component: {fileID: 1575186988764811887}
   - component: {fileID: 8919888139408643256}
   - component: {fileID: -7609458146214037366}
   - component: {fileID: 5627765351413631988}
+  - component: {fileID: -7669550571093676917}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -9843,7 +9843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498750440386690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.84, y: -43.890617, z: 0}
+  m_LocalPosition: {x: 39.782, y: -43.890617, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9965,6 +9965,7 @@ MonoBehaviour:
   AdditionalAbilityNodes: []
   CharacterBrain: {fileID: 0}
   OptimizeForMobile: 1
+  _isStart: 1
 --- !u!114 &114265374337090402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10135,9 +10136,9 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InitialWeapon: {fileID: 114594623923584052, guid: b36af7f81fcf1004488895aa09c44af5,
+  InitialWeapon: {fileID: 114594623923584052, guid: 9e254991b6e8e1344af3fab0176ecaf2,
     type: 3}
-  CanPickupWeapons: 1
+  CanPickupWeapons: 0
   WeaponUseFeedback: {fileID: 0}
   WeaponAttachment: {fileID: 4515663194721164}
   ProjectileSpawn: {fileID: 0}
@@ -10305,48 +10306,11 @@ MonoBehaviour:
   _currentStamina: 0
   InitialStamina: 100
   MaximumStamina: 100
-  RunningStaminaConsumption: 10
+  RunningStaminaConsumption: 5
   DashingStaminaConsumption: 20
-  StaminaRecoveryDelay: 5
+  StaminaRecoveryDelay: 2
   StaminaRecoveryRate: 20
   OutOfStaminaFeedbacks: {fileID: 0}
---- !u!114 &1575186988764811887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498750440386690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c54b7b53e26347643a7d54dd14a14b62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 8300000, guid: d263976f01a245e4fb18c0c5c505406b, type: 3}
-  AbilityInProgressSfx: {fileID: 0}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  InitialWeapon: {fileID: 114594623923584052, guid: 9e254991b6e8e1344af3fab0176ecaf2,
-    type: 3}
-  CanPickupWeapons: 0
-  WeaponUseFeedback: {fileID: 0}
-  WeaponAttachment: {fileID: 4315474336313948}
-  ProjectileSpawn: {fileID: 0}
-  AutomaticallyBindAnimator: 1
-  AmmoDisplayID: 0
-  AutoIK: 1
-  ContinuousPress: 0
-  GettingHitInterruptsAttack: 0
-  UseSecondaryAxisThresholdToShoot: 0
-  BufferInput: 0
-  NewInputExtendsBuffer: 0
-  MaximumBufferDuration: 0.25
-  RequiresPerfectTile: 0
-  CurrentWeapon: {fileID: 0}
 --- !u!114 &8919888139408643256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10393,6 +10357,24 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
+--- !u!114 &-7669550571093676917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498750440386690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13714c8ccb3bbdf4e818f13da2e69eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RefillMode: 0
+  CooldownAfterHit: 6
+  RefillHealth: 1
+  HealthPerSecond: 1
+  HealthPerBurst: 5
+  DurationBetweenBursts: 2
 --- !u!1 &1561075265052736
 GameObject:
   m_ObjectHideFlags: 0
@@ -15662,7 +15644,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: d4f963e1fb34c6441b5188289f973106, type: 3}
+  Sfx: {fileID: 8300000, guid: 565fa8d872b9cea4f9152d74695d755a, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
@@ -15798,7 +15780,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 6f10d771e7aa4234c90db4da16c32b0d, type: 3}
+  Sfx: {fileID: 8300000, guid: ee65a87156dd8d143a21e8a64816e9c5, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
@@ -15806,8 +15788,8 @@ MonoBehaviour:
   PoolSize: 10
   MinVolume: 1
   MaxVolume: 1
-  MinPitch: 1
-  MaxPitch: 1
+  MinPitch: 0.95
+  MaxPitch: 1.07
   SfxAudioMixerGroup: {fileID: 0}
 --- !u!114 &8279206412651377572
 MonoBehaviour:
@@ -16275,7 +16257,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 1
-  Sfx: {fileID: 8300000, guid: 3d355044b7a83174dbed50bf25b44913, type: 3}
+  Sfx: {fileID: 8300000, guid: 01ccbf3f89263e94391c57245db584c0, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0

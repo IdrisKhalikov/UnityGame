@@ -131,6 +131,9 @@ namespace MoreMountains.TopDownEngine
         protected int _zVelocityAnimationParameter;
         protected int _idleAnimationParameter;
         protected int _randomAnimationParameter;
+        public bool _isStart = true;
+        protected int _isStartAnimationParameter;
+        protected const string _isStartAnimationParameterName = "isStart";
         protected int _randomConstantAnimationParameter;
         protected bool _animatorInitialized = false;
         protected CharacterPersistence _characterPersistence;
@@ -332,7 +335,8 @@ namespace MoreMountains.TopDownEngine
             MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _xVelocityAnimationParameterName, out _xVelocityAnimationParameter, AnimatorControllerParameterType.Float, _animatorParameters);
             MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _yVelocityAnimationParameterName, out _yVelocityAnimationParameter, AnimatorControllerParameterType.Float, _animatorParameters);
             MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _zVelocityAnimationParameterName, out _zVelocityAnimationParameter, AnimatorControllerParameterType.Float, _animatorParameters);
-            
+            MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _isStartAnimationParameterName, out _isStartAnimationParameter, AnimatorControllerParameterType.Bool, _animatorParameters);
+            MMAnimatorExtensions.UpdateAnimatorBool(_animator, _isStartAnimationParameter, _isStart,_animatorParameters, RunAnimatorSanityChecks);
             // we update our constant float animation parameter
             int randomConstant = UnityEngine.Random.Range(0, 1000);
             MMAnimatorExtensions.UpdateAnimatorInteger(_animator, _randomConstantAnimationParameter, randomConstant, _animatorParameters, RunAnimatorSanityChecks);
@@ -502,6 +506,7 @@ namespace MoreMountains.TopDownEngine
                 MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _xVelocityAnimationParameter, _controller.Velocity.x, _animatorParameters, RunAnimatorSanityChecks);
                 MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _yVelocityAnimationParameter, _controller.Velocity.y, _animatorParameters, RunAnimatorSanityChecks);
                 MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _zVelocityAnimationParameter, _controller.Velocity.z, _animatorParameters, RunAnimatorSanityChecks);
+				MMAnimatorExtensions.UpdateAnimatorBool(_animator, _isStartAnimationParameter, _isStart,_animatorParameters, RunAnimatorSanityChecks);
 
 
                 foreach (CharacterAbility ability in _characterAbilities)

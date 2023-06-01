@@ -465,7 +465,7 @@ namespace MoreMountains.TopDownEngine
                 }
                 else
                 {
-                    characterPause.UnPauseCharacter();
+                    characterPause.UnPauseCharacterForce();
                 }
             }
         }
